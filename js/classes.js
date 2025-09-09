@@ -1,4 +1,5 @@
-class Parquimetro {
+// Classe responsável pela lógica do parquímetro
+export class Parquimetro {
   constructor(valor) {
     this.valor = parseFloat(valor);
     this.tempo = 0;
@@ -8,7 +9,7 @@ class Parquimetro {
   calcularTempoETroco() {
     if (this.valor < 1) {
       return {
-        mensagem: "Valor insuficiente. Insira pelo menos R$ 1,00.",
+        mensagem: "Valor insuficiente. Insira pelo menos R$ 1,00."
       };
     }
 
@@ -29,14 +30,4 @@ class Parquimetro {
       mensagem: `Tempo concedido: ${this.tempo} minutos. Troco: R$ ${this.troco.toFixed(2)}.`
     };
   }
-}
-
-function calcularTempo() {
-  const valorInput = document.getElementById("valor").value;
-  const resultadoDiv = document.getElementById("resultado");
-
-  const parquimetro = new Parquimetro(valorInput);
-  const resultado = parquimetro.calcularTempoETroco();
-
-  resultadoDiv.innerText = resultado.mensagem;
 }
